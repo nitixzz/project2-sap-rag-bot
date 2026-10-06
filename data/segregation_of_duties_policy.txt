@@ -1,0 +1,16 @@
+SAP Segregation of Duties (SoD) Policy
+
+1. Overview
+Segregation of Duties (SoD) ensures that no single user can execute two or more conflicting business functions that together create a risk of fraud or error. This policy governs SoD risk analysis, mitigation, and monitoring across all SAP systems and is enforced through SAP GRC Access Control.
+
+2. Conflicting Functions
+A classic SoD conflict exists when one user can both create a vendor and process a payment to that vendor, enabling fraudulent disbursement. Similar conflicts include creating a purchase order and approving goods receipt, or maintaining a user master record and assigning authorizations to that same user. Each conflict is defined at the function and action level in the GRC ruleset.
+
+3. Risk Analysis
+Before any role is assigned, a user-level risk analysis must be run in SAP GRC. The analysis reports risks at the permission level, taking authorization objects into account rather than transaction codes alone. Roles must be designed to be SoD-clean at the single-role level wherever possible, so that conflicts do not arise purely from composite role combinations.
+
+4. Mitigating Controls
+Where a conflict cannot be eliminated, a mitigating control must be assigned to the user and documented, with a named control monitor and a defined monitoring frequency. Mitigation is never a permanent substitute for remediation; open conflicts must be reviewed monthly.
+
+5. Critical and Sensitive Access
+Access to critical transactions such as SU01, PFCG, SE16, and debugging authorizations (S_DEVELOP) is classified as sensitive and requires additional approval. Firefighter (emergency) access is provided through GRC Emergency Access Management, and every firefighter session is logged and reviewed. Segregation of Duties violations detected during the quarterly access review must be remediated or formally accepted by the risk owner.

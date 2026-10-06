@@ -1,0 +1,16 @@
+SAP User Administration Policy
+
+1. Purpose
+This policy defines the standards for creating, maintaining, and deactivating user accounts in all SAP production systems. It applies to all administrators who use transaction SU01 for user management.
+
+2. User Creation
+New user accounts must be created only after an approved access request in ServiceNow. The administrator uses transaction SU01 to create the account. Every user must have a valid email address, a designated user group, and a defined validity period. Reference users may be used to copy standard authorization defaults, but composite roles must always be assigned through PFCG-managed role assignment, never by direct profile assignment.
+
+3. User Types
+Dialog users are for interactive logon by named individuals. System users are for background processing and RFC communication and must not allow interactive logon. Communication users are for non-interactive machine-to-machine access. Service users are shared and must be tightly restricted. Reference users exist only to provide additional authorizations and cannot log on.
+
+4. Password and Logon Security
+Initial passwords must be set as one-time passwords that force a change at first logon. Password rules are enforced through profile parameters configured in transaction RZ10, including login/min_password_length, login/password_expiration_time, and login/fails_to_user_lock. Accounts are locked automatically after five consecutive failed logon attempts.
+
+5. Deactivation and Review
+Accounts for terminated employees must be locked within 24 hours and deleted after 90 days of inactivity. A quarterly user access review is mandatory. Administrators use transaction SU10 for mass user maintenance when locking or updating many accounts at once. All changes to user master records are logged and reviewed through the security audit log (SM20).

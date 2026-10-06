@@ -1,0 +1,18 @@
+# Secrets — never commit these
+.env
+
+# Python virtual environment — recreated from requirements.txt
+venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# The generated vector store (rebuilt from source docs)
+index.json
+
+# Saved conversations (local output)
+conversations/
+
+# macOS clutter
+.DS_Store
